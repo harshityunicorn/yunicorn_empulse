@@ -4,10 +4,12 @@ import 'package:yunicorn_empulse/core/constants/color_contants.dart';
 class CommonElevatedButton extends StatelessWidget {
   final String buttonText;
   final Function() onClick;
+  final Color? color;
   const CommonElevatedButton({
     super.key,
     required this.buttonText,
     required this.onClick,
+    this.color,
   });
 
   @override
@@ -16,11 +18,12 @@ class CommonElevatedButton extends StatelessWidget {
       width: double.infinity,
       height: 60,
       child: ElevatedButton(
-
         style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(12)),
-          backgroundColor: ColorContants.common_elevated_button_color,
-          foregroundColor: ColorContants.text_grey_white, 
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusGeometry.circular(12),
+          ),
+          backgroundColor: color ?? ColorContants.common_elevated_button_color,
+          foregroundColor: ColorContants.text_grey_white,
         ),
         onPressed: onClick,
         child: Text(buttonText),

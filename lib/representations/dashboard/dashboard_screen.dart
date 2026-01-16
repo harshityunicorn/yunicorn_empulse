@@ -23,42 +23,44 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => DashboardBloc()..add(DashBoardLoadEvent()),
-      child: SingleChildScrollView(
-          child: SafeArea(
-            child: Column(
-              children: [
-                Stack(
-                  children: [
-                    Container(
-                      height: 260.h,
-                      decoration: BoxDecoration(
-                        color: ColorContants.brand_secondary,
+      child: Scaffold(
+        body: SingleChildScrollView(
+            child: SafeArea(
+              child: Column(
+                children: [
+                  Stack(
+                    children: [
+                      Container(
+                        height: 260.h,
+                        decoration: BoxDecoration(
+                          color: ColorContants.brand_secondary,
+                        ),
                       ),
-                    ),
-                    Positioned(
-                      right: -23.w,
-                      top: 50.h,
-                      child: Image.asset(
-                        ImageConstants.three_leaf,
-                        height: 140.h,
+                      Positioned(
+                        right: -23.w,
+                        top: 50.h,
+                        child: Image.asset(
+                          ImageConstants.three_leaf,
+                          height: 140.h,
+                        ),
                       ),
-                    ),
-                    Positioned(
-                      left: 0.w,
-                      top: 60.h,
-                      child: Image.asset(
-                        ImageConstants.half_star,
-                        height: 140.h,
+                      Positioned(
+                        left: 0.w,
+                        top: 60.h,
+                        child: Image.asset(
+                          ImageConstants.half_star,
+                          height: 140.h,
+                        ),
                       ),
-                    ),
-                    DashBoardContent(),
-                    Positioned(bottom: 10, child: CustomBottomNavigation()),
-                  ],
-                ),
-              ],
+                      DashBoardContent(),
+                      Positioned(bottom: 10, child: CustomBottomNavigation()),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
+      ),
       );
   }
 }

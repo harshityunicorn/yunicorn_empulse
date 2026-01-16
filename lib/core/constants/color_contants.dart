@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class ColorContants {
   static Color brand_secondary = const Color.fromRGBO(254, 242, 242, 1);
+  static Color brand_secondary_lighter = const Color.fromRGBO(255, 250, 250, 1);
   static Color purple_text_headings = const Color.fromRGBO(45, 52, 107, 1);
   static Color sub_heading_grey = const Color.fromRGBO(110, 109, 116, 1);
   static Color card_back_ground_grey = const Color.fromRGBO(231, 231, 232, 1);
@@ -14,9 +15,11 @@ class ColorContants {
     107,
     1,
   );
-  static Color text_grey_white = const Color.fromRGBO(255, 255, 255, 1);
+  static Color text_grey_white = const Color.fromRGBO(255, 252, 252, 1);
   static Color error_red = Color.fromRGBO(137, 0, 0, 1);
   static Color error_green = Color.fromRGBO(0, 55, 25, 1);
+  static Color error_green_light = Color.fromRGBO(209, 249, 222, 1);
+  static Color error_red_light = Color.fromRGBO(252, 226, 226, 1);
   static Color notification_card_background_cream = Color.fromRGBO(
     255,
     250,
@@ -25,4 +28,5 @@ class ColorContants {
   );
 
   static Color black = Colors.black;
+  static Color dubaiOrange = Color.fromRGBO(250, 144, 56, 1);
 }

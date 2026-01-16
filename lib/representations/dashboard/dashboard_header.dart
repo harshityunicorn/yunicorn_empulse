@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yunicorn_empulse/core/constants/color_contants.dart';
 import 'package:yunicorn_empulse/core/constants/image_constants.dart';
 import 'package:yunicorn_empulse/core/constants/text_constants.dart';
+import 'package:yunicorn_empulse/data/models/user.dart';
+import 'package:yunicorn_empulse/logic/auth/auth_bloc.dart';
 import 'package:yunicorn_empulse/logic/dashboard/dashboard_bloc.dart';
 
 class DashboardHeader extends StatelessWidget {
@@ -42,7 +44,9 @@ class DashboardHeader extends StatelessWidget {
               const Spacer(),
               GestureDetector(
                 onTap: () {
-                  context.read<DashboardBloc>().add(ClickOnNotificationButton());
+                  context.read<DashboardBloc>().add(
+                    ClickOnNotificationButton(),
+                  );
                 },
                 child: Image.asset(
                   ImageConstants.notification_icon,
@@ -51,11 +55,19 @@ class DashboardHeader extends StatelessWidget {
                   fit: BoxFit.cover, // Use contain instead of cover
                 ),
               ),
-              Image.asset(
-                ImageConstants.person_icon,
-                height: 56.h,
-                width: 24.h,
-                fit: BoxFit.cover, // Use contain instead of cover
+              GestureDetector(
+                onTap: () {
+
+                  context.read<DashboardBloc>().add(
+                    ClickOnProfileButton(),
+                  );
+                },
+                child: Image.asset(
+                  ImageConstants.person_icon,
+                  height: 56.h,
+                  width: 24.h,
+                  fit: BoxFit.cover, // Use contain instead of cover
+                ),
               ),
             ],
           ),

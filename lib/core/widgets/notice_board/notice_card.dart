@@ -14,6 +14,7 @@ class NoticeCard extends StatelessWidget {
     required this.byTeam,
     required this.date,
     required this.tag,
+    required this.onTogglePin,
   });
   final bool isPinned;
   final String title;
@@ -21,6 +22,7 @@ class NoticeCard extends StatelessWidget {
   final String tag;
   final String byTeam;
   final DateTime date;
+  final void Function() onTogglePin;
 
   @override
   Widget build(BuildContext context) {
@@ -45,13 +47,13 @@ class NoticeCard extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
                 Text(
-                  TextConstants.tripEligibilityCriteriaUpdated,
+                  title,
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
                 ),
               ],
             ),
             Text(
-              TextConstants.notification1content,
+              content,
               style: TextStyle(overflow: TextOverflow.ellipsis),
               maxLines: 2,
             ),
@@ -59,22 +61,35 @@ class NoticeCard extends StatelessWidget {
             Row(
               spacing: 8,
               children: [
-                Text("Trip-related"),
+                Text(tag),
                 CircleAvatar(maxRadius: 3),
-                Text("By HR Team"),
+                Text(byTeam),
                 CircleAvatar(maxRadius: 3),
                 Text('${Util.getDaysFromNow(date) + 1}d ago'),
                 Spacer(),
-                Stack(
-                  children: [
-                    Image.asset(
-                      ImageConstants.push_pin,
-                      height: 24.h,
-                      width: 24.w,
+                GestureDetector(
+                  onTap: onTogglePin,
+                  child: Card(
+                    clipBehavior: Clip.hardEdge,
+                    elevation: 0,
+                    child: Stack(
+                      children: [
+                        Image.asset(
+                          ImageConstants.push_pin,
+                          height: 24.h,
+                          width: 24.w,
+                        ),
+                        if (isPinned)
+                          Positioned(
+                            left: 0,
+                            right: 0,
+                            top: 0,
+                            bottom: 0,
+                            child: Image.asset(ImageConstants.cross_line),
+                          ),
+                      ],
                     ),
-                    if (isPinned)
-                      Image.asset(ImageConstants.cross_line, width: 20.h),
-                  ],
+                  ),
                 ),
               ],
             ),

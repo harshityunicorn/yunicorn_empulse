@@ -30,6 +30,7 @@ class LeaderboardTopThree extends StatelessWidget {
               name: users[0].name,
               rank: users[0].rank,
               points: users[0].points,
+              radius: 45,
             ),
           ),
         if (users.length >= 3)

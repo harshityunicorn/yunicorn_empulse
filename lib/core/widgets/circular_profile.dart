@@ -12,6 +12,7 @@ class CircularProfile extends StatelessWidget {
     this.rank,
     this.points,
     this.position,
+    this.nameFontSize,
   });
 
   final String backgroundImage;
@@ -20,6 +21,7 @@ class CircularProfile extends StatelessWidget {
   final int? points;
   final String? position;
   final double? radius;
+  final double? nameFontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +33,10 @@ class CircularProfile extends StatelessWidget {
           children: [
             if (rank != null && rank == 1)
               Positioned(
-                top: -15.h,
-                left: 18.w,
+                top: -25.h,
+                // left: 18.w,
+                left: 0.w,
+                right: 0.w,
                 child: Image.asset(ImageConstants.crown, width: 35.w),
               ),
             Container(
@@ -53,7 +57,8 @@ class CircularProfile extends StatelessWidget {
             if (rank != null)
               Positioned(
                 bottom: -8,
-                left: 30.w,
+                left: 0,
+                right: 0,
                 child: Container(
                   width: 20,
                   decoration: BoxDecoration(
@@ -76,7 +81,20 @@ class CircularProfile extends StatelessWidget {
             style: TextStyle(
               color: ColorContants.purple_text_headings,
               fontWeight: FontWeight.w600,
-              fontSize: 14,
+              fontSize: nameFontSize ?? 14,
+              overflow: TextOverflow.ellipsis,
+            ),
+            softWrap: true,
+            maxLines: 1,
+          ),
+
+        if (position != null)
+          Text(
+            position!,
+            style: TextStyle(
+              color: ColorContants.sub_heading_grey,
+              fontWeight: FontWeight.w500,
+              fontSize: 12,
             ),
           ),
         if (points != null)

@@ -51,4 +51,39 @@ class Util {
     final difference = now.difference(dateTime);
     return difference.inDays;
   }
+
+  static String formatDate(DateTime dateTime) {
+    return '${dateTime.day.toString().padLeft(2, '0')} '
+        '${_monthName(dateTime.month)} '
+        '${dateTime.year}';
+  }
+
+  static String _monthName(int month) {
+    const months = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ];
+    return months[month - 1];
+  }
+
+  static String formatDateTime(DateTime dateTime) {
+    final hour = dateTime.hour % 12 == 0 ? 12 : dateTime.hour % 12;
+    final period = dateTime.hour >= 12 ? 'PM' : 'AM';
+
+    return '${dateTime.day.toString().padLeft(2, '0')} '
+        '${_monthName(dateTime.month)} '
+        '${dateTime.year} • '
+        '${hour.toString().padLeft(2, '0')}:'
+        '${dateTime.minute.toString().padLeft(2, '0')} $period';
+  }
 }

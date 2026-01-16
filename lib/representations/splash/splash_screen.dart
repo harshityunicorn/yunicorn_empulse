@@ -14,18 +14,18 @@ class SplashScreen extends StatelessWidget {
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         print(state.runtimeType);
-        if (state is AuthUnauthenticated) {
-          Future.delayed(
-            const Duration(seconds: 2),
-            () => NavigationService.pushReplacementNamed(AppRoutes.login),
-          );
-        }
-        if (state is AuthAuthenticated) {
-          Future.delayed(
-            const Duration(seconds: 2),
-            () => NavigationService.pushReplacementNamed(AppRoutes.navbar),
-          );
-        }
+        // if (state is AuthUnauthenticated) {
+        //   Future.delayed(
+        //     const Duration(seconds: 2),
+        //     () => NavigationService.pushReplacementNamed(AppRoutes.login),
+        //   );
+        // }
+        // if (state is AuthAuthenticated) {
+        //   Future.delayed(
+        //     const Duration(seconds: 2),
+        //     () => NavigationService.pushReplacementNamed(AppRoutes.navbar),
+        //   );
+        // }
       },
       builder: (context, state) {
         return Container(

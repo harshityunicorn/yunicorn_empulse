@@ -1,3 +1,5 @@
+import 'package:yunicorn_empulse/core/constants/enums.dart';
+
 class User {
   final String name;
   final String email;
@@ -7,10 +9,12 @@ class User {
   final int points;
   final int rank;
   final DateTime joinDate;
-  final TRIP_ELIGIBILITY tripEligibility;
+  final TripEligibility tripEligibility;
   final String? image;
+  final String id;
 
   const User({
+    required this.id,
     required this.email,
     required this.password,
     required this.name,
@@ -22,8 +26,43 @@ class User {
     required this.tripEligibility,
     this.image,
   });
+
+  User copyWith({
+    String? id,
+    String? name,
+    String? email,
+    String? password,
+    String? profile,
+    DEPARTMENT? department,
+    int? points,
+    int? rank,
+    DateTime? joinDate,
+    TripEligibility? tripEligibility,
+    String? image,
+  }) {
+    return User(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      email: email ?? this.email,
+      password: password ?? this.password,
+      profile: profile ?? this.profile,
+      department: department ?? this.department,
+      points: points ?? this.points,
+      rank: rank ?? this.rank,
+      joinDate: joinDate ?? this.joinDate,
+      tripEligibility: tripEligibility ?? this.tripEligibility,
+      image: image ?? this.image,
+    );
+  }
 }
 
-enum DEPARTMENT { engineering, businessDevelopment, humanResources }
+class TripEligibility {
+  TRIPS trip;
+  ELIGIBILITY eligibility;
 
-enum TRIP_ELIGIBILITY { qualified, unqualified, pending }
+  TripEligibility({required this.eligibility, required this.trip});
+}
+
+enum DEPARTMENT { development, business, humanResources, design, marketing, qa, all }
+
+enum ELIGIBILITY { eligible, uneligible, pending }

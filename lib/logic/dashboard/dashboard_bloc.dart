@@ -14,6 +14,9 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
   DashboardBloc() : super(DashboardInitial()) {
     on<DashBoardLoadEvent>(dashBoardLoadEvent);
     on<ClickOnNotificationButton>(clickOnNotificationButton);
+    on<ClickOnProfileButton>(clickOnProfileButton);
+    on<ClickOnNoticeBoardViewAllButton>(clickOnNoticeBoardViewAllButton);
+    on<ClickOnNewsViewAllButton>(clickOnNewsViewAllButton);
   }
 
   FutureOr<void> dashBoardLoadEvent(
@@ -29,5 +32,17 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
     Emitter<DashboardState> emit,
   ) {
     NavigationService.pushNamed(AppRoutes.notifications);
+  }
+
+  FutureOr<void> clickOnProfileButton(ClickOnProfileButton event, Emitter<DashboardState> emit) {
+    NavigationService.pushNamed(AppRoutes.profile);
+  }
+
+  FutureOr<void> clickOnNoticeBoardViewAllButton(ClickOnNoticeBoardViewAllButton event, Emitter<DashboardState> emit) {
+    NavigationService.pushNamed(AppRoutes.noticeBoard);
+  }
+
+  FutureOr<void> clickOnNewsViewAllButton(ClickOnNewsViewAllButton event, Emitter<DashboardState> emit) {
+    NavigationService.pushNamed(AppRoutes.announcements);
   }
 }

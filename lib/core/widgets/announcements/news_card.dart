@@ -1,8 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yunicorn_empulse/core/constants/color_contants.dart';
 import 'package:yunicorn_empulse/data/models/news.dart';
+import 'package:yunicorn_empulse/logic/dashboard/dashboard_bloc.dart';
 
 class NewsCard extends StatelessWidget {
   final News news;
@@ -61,6 +63,7 @@ class NewsCard extends StatelessWidget {
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                               print("Read more tapped");
+                              context.read<DashboardBloc>().add(ClickOnNewsViewAllButton());
                               // Navigate or expand text
                             },
                         ),

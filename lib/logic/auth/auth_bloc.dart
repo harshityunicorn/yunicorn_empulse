@@ -20,15 +20,21 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
       if (token == null) {
         emit(AuthUnauthenticated());
+        NavigationService.pushNamed(AppRoutes.login);
       } else {
         User user = DummyData.userList.firstWhere(
           (element) => element.email == token,
         );
         emit(AuthAuthenticated(user: user));
+        NavigationService.pushNamed(AppRoutes.navbar);
       }
     });
 
+    on<LogoutEvent>(logoutEvent);
+
     on<SaveUserAndToken>(saveUserAndToken);
+
+    on<UpdateUser>(updateUser);
   }
 
   FutureOr<void> saveUserAndToken(
@@ -38,6 +44,17 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     final sharedPreferences = await SharedPreferences.getInstance();
     // in real case scenerio save token instead of email;
     sharedPreferences.setString('token', event.user.email);
-    NavigationService.pushNamed(AppRoutes.dashboard);
+    emit(AuthAuthenticated(user: event.user));
+    NavigationService.pushNamed(AppRoutes.navbar);
+  }
+
+  FutureOr<void> updateUser(UpdateUser event, Emitter<AuthState> emit) {
+    emit(AuthAuthenticated(user: event.user));
+  }
+
+  FutureOr<void> logoutEvent(LogoutEvent event, Emitter<AuthState> emit) async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    await sharedPreferences.clear();
+    NavigationService.pushNamed(AppRoutes.login);
   }
 }

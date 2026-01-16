@@ -25,4 +25,17 @@ class ImageConstants {
   static String airplace_icon = 'assets/images/airplane_icon.png';
   static String leaderboard_icon = 'assets/images/leaderboard_icon.png';
   static String filter_icon = 'assets/images/filter_icon.png';
+  static String image_picker_icon = 'assets/images/image_picker_icon.png';
+  static String logout_icon = 'assets/images/logout_icon.png';
+  static String trophy_icon = 'assets/images/trophy_icon.png';
+  static String luggage_bag_icon = 'assets/images/luggage_bag_icon.png';
+  static String calender_icon = 'assets/images/calender_icon.png';
+  static String star_icon = 'assets/images/star_icon.png';
+  static String announcement_icon = 'assets/images/announcement_icon.png';
+
+  static String dubai_hero = 'assets/images/dubai.png';
+  static String europe_hero = 'assets/images/europe.png';
+  static String location_icon = 'assets/images/location.png';
+  static String reward_icon = 'assets/images/reward_icon.png';
+  static String right_icon = 'assets/images/right_icon.png';
 }
