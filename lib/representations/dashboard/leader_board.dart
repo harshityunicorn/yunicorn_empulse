@@ -21,7 +21,7 @@ class LeaderBoard extends StatelessWidget {
         final currentState = state as LeaderboardInitial;
 
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8),
           child: Column(
             children: [
               Row(
@@ -53,55 +53,7 @@ class LeaderBoard extends StatelessWidget {
               ),
 
               SizedBox(height: 12.h),
-              LeaderboardTopThree(
-                users: [
-                  User(
-                    id: "YC-00051",
-                    email: 'harshit@gmail.com',
-                    password: "fdsf",
-                    name: "Rupesh patil",
-                    profile: "CEO",
-                    department: DEPARTMENT.development,
-                    joinDate: DateTime.now(),
-                    points: 2000,
-                    rank: 1,
-                    tripEligibility: TripEligibility(
-                      eligibility: ELIGIBILITY.pending,
-                      trip: TRIPS.dubai,
-                    ),
-                  ),
-                  User(
-                    id: "YC-00051",
-                    email: 'harshit@gmail.com',
-                    password: "fdsf",
-                    name: "Rupesh patil",
-                    profile: "CEO",
-                    department: DEPARTMENT.development,
-                    joinDate: DateTime.now(),
-                    points: 2000,
-                    rank: 2,
-                    tripEligibility: TripEligibility(
-                      eligibility: ELIGIBILITY.pending,
-                      trip: TRIPS.dubai,
-                    ),
-                  ),
-                  User(
-                    id: "YC-00051",
-                    email: 'harshit@gmail.com',
-                    password: "fdsf",
-                    name: "Rupesh patil",
-                    profile: "CEO",
-                    department: DEPARTMENT.development,
-                    joinDate: DateTime.now(),
-                    points: 2000,
-                    rank: 3,
-                    tripEligibility: TripEligibility(
-                      eligibility: ELIGIBILITY.pending,
-                      trip: TRIPS.dubai,
-                    ),
-                  ),
-                ],
-              ),
+              LeaderboardTopThree(users: state.employees),
 
               SizedBox(height: 12.h),
 

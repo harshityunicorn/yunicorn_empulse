@@ -84,8 +84,9 @@ class CircularProfile extends StatelessWidget {
               fontSize: nameFontSize ?? 14,
               overflow: TextOverflow.ellipsis,
             ),
+            textAlign: TextAlign.center, // Center align the text
             softWrap: true,
-            maxLines: 1,
+            maxLines: 2, // Allow 2 lines instead of 1
           ),
 
         if (position != null)

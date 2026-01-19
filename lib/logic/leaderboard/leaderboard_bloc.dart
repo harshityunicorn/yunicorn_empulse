@@ -24,6 +24,9 @@ class LeaderboardBloc extends Bloc<LeaderboardEvent, LeaderboardState> {
     Emitter<LeaderboardState> emit,
   ) {
     List<User> employees = DummyData.userList;
+    employees.sort((a, b) {
+      return a.rank.compareTo(b.rank);
+    });
     emit(LeaderboardInitial(employees: employees));
   }
 
@@ -50,8 +53,11 @@ class LeaderboardBloc extends Bloc<LeaderboardEvent, LeaderboardState> {
           users: employees,
           filters: filters,
         );
+        filteredEmployees.sort((a, b) {
+          return a.rank.compareTo(b.rank);
+        });
         emit(LeaderboardInitial(employees: filteredEmployees));
-      }else{
+      } else {
         emit(LeaderboardInitial(employees: employees));
       }
     }

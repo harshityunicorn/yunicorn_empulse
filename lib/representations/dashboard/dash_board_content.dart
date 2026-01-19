@@ -11,14 +11,16 @@ class DashBoardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        DashboardHeader(),
-        NewsView(),
-        NoticeBoard(),
-        TripBoard(), 
-        LeaderBoard()
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          DashboardHeader(),
+          NewsView(),
+          NoticeBoard(),
+          TripBoard(), 
+          LeaderBoard()
+        ],
+      ),
     );
   }
 }

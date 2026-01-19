@@ -65,53 +65,7 @@ class LeaderboardScreen extends StatelessWidget {
                   ),
 
                   LeaderboardTopThree(
-                    users: [
-                      User(
-                        id: "YC-00051",
-                        email: 'harshit@gmail.com',
-                        password: "fdsf",
-                        name: "Rupesh patil",
-                        profile: "CEO",
-                        department: DEPARTMENT.development,
-                        joinDate: DateTime.now(),
-                        points: 2000,
-                        rank: 1,
-                        tripEligibility: TripEligibility(
-                          eligibility: ELIGIBILITY.pending,
-                          trip: TRIPS.dubai,
-                        ),
-                      ),
-                      User(
-                        id: "YC-00051",
-                        email: 'harshit@gmail.com',
-                        password: "fdsf",
-                        name: "Rupesh patil",
-                        profile: "CEO",
-                        department: DEPARTMENT.development,
-                        joinDate: DateTime.now(),
-                        points: 2000,
-                        rank: 2,
-                        tripEligibility: TripEligibility(
-                          eligibility: ELIGIBILITY.pending,
-                          trip: TRIPS.dubai,
-                        ),
-                      ),
-                      User(
-                        id: "YC-00051",
-                        email: 'harshit@gmail.com',
-                        password: "fdsf",
-                        name: "Rupesh patil",
-                        profile: "CEO",
-                        department: DEPARTMENT.development,
-                        joinDate: DateTime.now(),
-                        points: 2000,
-                        rank: 3,
-                        tripEligibility: TripEligibility(
-                          eligibility: ELIGIBILITY.pending,
-                          trip: TRIPS.dubai,
-                        ),
-                      ),
-                    ],
+                    users: state.employees,
                   ),
                   Container(
                     width: double.infinity,

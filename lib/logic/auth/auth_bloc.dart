@@ -20,13 +20,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
       if (token == null) {
         emit(AuthUnauthenticated());
-        NavigationService.pushNamed(AppRoutes.login);
+        NavigationService.pushReplacementNamed(AppRoutes.login);
       } else {
         User user = DummyData.userList.firstWhere(
           (element) => element.email == token,
         );
         emit(AuthAuthenticated(user: user));
-        NavigationService.pushNamed(AppRoutes.navbar);
+        NavigationService.pushReplacementNamed(AppRoutes.navbar);
       }
     });
 
